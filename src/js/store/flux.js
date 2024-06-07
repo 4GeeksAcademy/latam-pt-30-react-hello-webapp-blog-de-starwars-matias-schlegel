@@ -1,7 +1,8 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			characters: []
+			characters: [],
+			specificCharacter: null
 		},
 		actions: {
 			getCharacters: async () => {
@@ -16,7 +17,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch(error) {
 					console.log(error)
 				}
-			}
+			},
+			getSpecificCharacter: async (id) => {
+				try {
+					const response = await fetch(`https://www.swapi.tech/api/people/${id}`)
+					if (!response.ok) {
+						throw new Error("Levante un error")
+					}
+					const data = await response.json()
+					setStore({ specificCharacter: data.result.properties})
+					console.log(data.result)
+				} catch(error) {
+					console.log(error)
+				}
+			},
 		}
 	};
 };

@@ -17,11 +17,12 @@ export const Characters = () => {
                 <div className="d-flex">
                     {store.characters && store.characters.length > 0 ? (
                         store.characters.map((character) => (
-                            <div className="col-md-4" key={character.uid}>
+                            <div className="col-4" key={character.uid}>
                                 <Card 
                                     img="https://www.nawpic.com/media/2020/star-wars-nawpic-1.png"
                                     title={character.name}
-                                    link={character.url}
+                                    link={`/specificCharacter/${character.uid}`}
+                                    characterId={character.uid}
                                 />
                             </div>
                         ))

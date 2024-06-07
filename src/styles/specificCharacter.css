@@ -1,0 +1,23 @@
+.cardSpecificCharacter img {
+    max-width: 500px;
+    max-height: 300px;
+}
+
+.titleText {
+    margin-left: 23rem;
+}
+
+.info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.stick {
+    margin-top: 24px;
+    margin-bottom: 12px;
+    height: 1px;
+    width: 70rem;
+    background-color: red;
+}
