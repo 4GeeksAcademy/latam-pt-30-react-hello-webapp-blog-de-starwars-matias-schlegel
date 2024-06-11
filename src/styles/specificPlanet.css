@@ -1,23 +1,23 @@
-.cardSpecificCharacter img {
+.cardSpecificPlanet img {
     max-width: 160%;
     max-height: 140%;
 }
 
-.cardSpecificCharacter p {
+.cardSpecificPlanet p {
     width: 400%;
 }
 
-.titleText h5 {
+.titleTextPlanet h5 {
     display: flex;
     justify-content: center;
     width: 400%;
 }
 
-.info {
+.infoPlanet {
     gap: 30%;
 }
 
-.stick {
+.stickPlanet {
     margin-top: 24px;
     margin-bottom: 12px;
     height: 1px;

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { Card } from "../component/Card";
+import { CardPlanet } from "../component/CardPlanet";
 
 
 export const Characters = () => {
@@ -8,6 +9,7 @@ export const Characters = () => {
 
     useEffect(() => {
         actions.getCharacters()
+        actions.getPlanets()
     }, [])
 
     return (
@@ -29,6 +31,26 @@ export const Characters = () => {
                     ) : (
                         <p>Loading characters...</p>
                     )}
+                </div>
+
+                <div className="">
+                    <h1>Planets</h1>
+                        <div className="d-flex">
+                            {store.planets && store.planets.length > 0 ? (
+                                store.planets.map((planet) => (
+                                    <div className="col-4" key={planet.uid}>
+                                        <CardPlanet 
+                                            img2="https://i.pinimg.com/originals/56/37/69/563769f0491a3898145f0113ead75443.jpg"
+                                            title2={planet.name}
+                                            link2={`/specificPlanet/${planet.uid}`}
+                                            planetId={planet.uid}
+                                        />
+                                    </div>
+                                    ))
+                                ) : (
+                                    <p>Loading planets...</p>
+                                )}
+                        </div>
                 </div>
             </div>
         </React.Fragment>

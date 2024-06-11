@@ -1,0 +1,43 @@
+import React, { useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
+
+export const CardPlanet = ({img2, title2, link2, planetId}) => {
+    const {store, actions} = useContext(Context)
+
+    useEffect(() => {
+            actions.getPlanets()
+    }, [])
+   
+    const handleAddFavorite = () => {
+        const planet = store.planets.find(char => char.uid === planetId);
+        if (planet) {
+            actions.addFavorite(planet);
+        }
+    };
+
+    return (
+        <React.Fragment>
+            <div className="card" style={{width: "18rem"}}>
+                <img src={img2} className="card-img-top" />
+                <div className="card-body">
+                    <h5 className="card-title">{title2}</h5>
+                    <Link 
+                        to={`/demo2/${planetId}`}
+                        href={link2} 
+                        className="btn btn-primary"
+                        >
+                            Learn more!
+                    </Link>
+                    <button 
+                        type="button" 
+                        className="btn"
+                        onClick={handleAddFavorite}
+                    >
+                            🖤
+                        </button>
+                </div>
+            </div>
+    </React.Fragment>
+    )
+}
