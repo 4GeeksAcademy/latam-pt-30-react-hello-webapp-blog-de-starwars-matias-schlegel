@@ -39,15 +39,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				try{
 					const response = await fetch("https://www.swapi.tech/api/planets")
 					if (!response.ok) {
-						if (response.status === 429) {
-							// Espera antes de reintentar la solicitud
-							console.log("Demasiadas solicitudes, reintentando en 1 segundo...");
-							await new Promise(resolve => setTimeout(resolve, 1000));
-							return getActions().getSpecificPlanet(id);
-						} else {
 							throw new Error("Levante un error");
 						}
-					}
 					const data = await response.json()
 					setStore({ planets: data.results })
 					console.log(data.results)
@@ -60,14 +53,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				try {
 					const response = await fetch(`https://www.swapi.tech/api/planets/${id}`)
 					if (!response.ok) {
-						if (response.status === 429) {
-							// Espera antes de reintentar la solicitud
-							console.log("Demasiadas solicitudes, reintentando en 1 segundo...");
-							await new Promise(resolve => setTimeout(resolve, 1000));
-							return getActions().getSpecificPlanet(id);
-						} else {
-							throw new Error("Levante un error");
-						}
+						throw new Error("Levante un error");
 					}
 					const data = await response.json()
 					setStore({ specificPlanet: data.result.properties})
