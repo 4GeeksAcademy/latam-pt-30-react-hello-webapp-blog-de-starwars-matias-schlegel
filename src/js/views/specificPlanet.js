@@ -10,8 +10,12 @@ export const SpecificPlanet = () => {
     
     useEffect(() =>{
             actions.getSpecificPlanet(id)
-    }, [])
-
+    }, [id])
+    
+    if (!store.specificPlanet) {
+        return <p>Loading planet...</p>;
+    }
+    
     return (
         <React.Fragment>
             <div>

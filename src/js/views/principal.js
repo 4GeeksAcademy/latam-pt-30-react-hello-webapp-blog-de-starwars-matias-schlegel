@@ -15,11 +15,12 @@ export const Characters = () => {
     return (
         <React.Fragment>
             <div className="container">
+            <div className="cards-container mt-3 g-2">
                 <h1>Characters</h1>
                 <div className="d-flex">
                     {store.characters && store.characters.length > 0 ? (
                         store.characters.map((character) => (
-                            <div className="col-4" key={character.uid}>
+                            <div className="col-3 g-2" key={character.uid}>
                                 <Card 
                                     img="https://www.nawpic.com/media/2020/star-wars-nawpic-1.png"
                                     title={character.name}
@@ -32,13 +33,14 @@ export const Characters = () => {
                         <p>Loading characters...</p>
                     )}
                 </div>
+            </div>
 
-                <div className="">
+                <div className="cards-planet-container mt-3">
                     <h1>Planets</h1>
                         <div className="d-flex">
                             {store.planets && store.planets.length > 0 ? (
                                 store.planets.map((planet) => (
-                                    <div className="col-4" key={planet.uid}>
+                                    <div className="col-3" key={planet.uid}>
                                         <CardPlanet 
                                             img2="https://i.pinimg.com/originals/56/37/69/563769f0491a3898145f0113ead75443.jpg"
                                             title2={planet.name}

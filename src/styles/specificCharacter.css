@@ -24,3 +24,25 @@
     width: 250%;
     background-color: red;
 }
+
+
+/*Cards para la barra de desplazamiento*/
+
+.cards-container .d-flex {
+    gap: 16px;
+}
+
+.cards-planet-container .d-flex {
+    gap: 16px;
+}
+
+.cards-container {
+    overflow: scroll;
+    overflow-y: hidden
+
+}
+
+.cards-planet-container {
+    overflow: scroll;
+    overflow-y: hidden
+}

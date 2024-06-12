@@ -5,10 +5,6 @@ import { Link } from "react-router-dom"
 export const Card = ({img, title, link, characterId }) => { 
     const {store, actions} = useContext(Context)
 
-    useEffect(() => {
-        actions.getCharacters();
-}, []);
-
 const handleAddFavorite = () => {
     const character = store.characters.find(char => char.uid === characterId);
     if (character) {
@@ -21,7 +17,7 @@ const handleAddFavorite = () => {
             <img src={img} className="card-img-top" />
                 <div className="card-body">
                     <h5 className="card-title">{title}</h5>
-                    <div className="d-flex justify-content-between mt-3">
+                    <div className="d-flex mt-3">
                         <Link 
                         to={`/demo/${characterId}`}
                         href={link} 

@@ -18,8 +18,12 @@ export const Navbar = () => {
 		<nav className="navbar navbar-light bg-light mb-3">
 			<Link to="/">
 				<span className="navbar-brand mb-0 h1 ms-5">
-					<i className="fa-solid fa-jedi"></i>
-					</span>
+					<img 
+						src="https://www.pngmart.com/files/3/Star-Wars-Logo-PNG-Photos.png" 
+						className="card-img-top" 
+						style={{maxWidth: "7rem", maxHeight: "7rem"}}
+					/>
+				</span>
 			</Link>
 			<div className="ml-auto">
 				<div className="dropdown">

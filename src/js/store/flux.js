@@ -22,6 +22,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 			getSpecificCharacter: async (id) => {
+				setStore({ specificCharacter: null }) // Restablecezco el estado antes de la nueva solicitud
 				try {
 					const response = await fetch(`https://www.swapi.tech/api/people/${id}`)
 					if (!response.ok) {
@@ -55,6 +56,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 			getSpecificPlanet: async (id) => {
+				setStore({ specificPlanet: null }) // Restablecezco el estado antes de la nueva solicitud
 				try {
 					const response = await fetch(`https://www.swapi.tech/api/planets/${id}`)
 					if (!response.ok) {
