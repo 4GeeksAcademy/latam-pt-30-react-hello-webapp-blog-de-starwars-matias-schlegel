@@ -62,13 +62,29 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(error)
 				}
 			},
-			addFavorite: (character) => {
-                const newFavorites = [...getStore().favorites, character];
+			addFavorite: (item, type) => {
+                const newFavorites = [...getStore().favorites, { ...item, type }];
                 setStore({ favorites: newFavorites });
 			},
-			deleteFavorite: async (id) => {
-				const newDelete = getStore().favorites.filter(favorite => favorite.uid !== id);
+			deleteFavorite: async (uid, type) => {
+				const newDelete = getStore().favorites.filter(favorite => favorite.uid !== uid || favorite.type !== type);
 				setStore({ favorites: newDelete });
+			},
+			// NO FUNCIONA
+			deleteFavoriteCharacter: async (id) => {
+				try {
+					const response = await fetch(`https://www.swapi.tech/api/people/${id}`, {
+						method: "DELETE",
+						headers: {
+							"Content-Type": "application/json"
+						}
+					});
+					if (!response.ok) {
+						throw new Error("Error al eliminar el favorito");
+					}
+				} catch(error) {
+					console.log(error)
+				}
 			}
 		}
 	}

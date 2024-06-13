@@ -10,9 +10,9 @@ export const Navbar = () => {
 			console.log(store.characters)
     }, []);
 
-	const handleDeleteFavorite = (id) => {
-        actions.deleteFavorite(id);
-    };
+	const handleDeleteFavorite = (uid, type) => {
+		actions.deleteFavorite(uid, type);
+	};
 	
 	return (
 		<nav className="navbar navbar-light bg-light mb-3">
@@ -43,7 +43,7 @@ export const Navbar = () => {
 										<button 
 										type="button" 
 										className="btn" 
-										onClick={() => handleDeleteFavorite(favorite.uid)}
+										onClick={() => handleDeleteFavorite(favorite.uid, favorite.type)}
 										>
                             				<i className="fa-solid fa-trash"></i>
                         				</button>

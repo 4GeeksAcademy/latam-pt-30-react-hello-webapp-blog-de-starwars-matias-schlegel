@@ -5,12 +5,12 @@ import { Link } from "react-router-dom"
 export const Card = ({img, title, link, characterId }) => { 
     const {store, actions} = useContext(Context)
 
-const handleAddFavorite = () => {
-    const character = store.characters.find(char => char.uid === characterId);
-    if (character) {
-        actions.addFavorite(character);
-    }
-};
+    const handleAddFavorite = () => {
+		const character = store.characters.find(char => char.uid === characterId);
+		if (character) {
+			actions.addFavorite(character, 'character'); // para indicar que el elemento que se está añadiendo como favorito es un personaj
+		}
+	};
 
     return (
         <div className="card d-flex" style={{ width: "18rem" }}>

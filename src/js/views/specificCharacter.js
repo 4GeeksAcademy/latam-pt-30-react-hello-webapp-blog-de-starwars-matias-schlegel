@@ -20,7 +20,11 @@ export const SpecificCharacter = () => {
                     <div className="row">
                         <div className="cardSpecificCharacter col-4">
                             <CardSpecificCharacter
-                               img="https://www.xtrafondos.com/wallpapers/darth-vader-de-star-wars-4936.jpg"
+                               img={
+                                store.specificCharacter.uid
+                                ? `https://starwars-visualguide.com/assets/img/planets/${store.specificCharacter.uid}.jpg`
+                                : "https://starwars-visualguide.com/assets/img/big-placeholder.jpg" 
+                            }
                                title={store.specificCharacter.name}
                                text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada. Maecenas sit amet blandit urna. Praesent vel nunc a lacus vestibulum volutpat. Donec quis dolor nec ipsum tempor blandit vel a odio."}
                                name={store.specificCharacter.name}

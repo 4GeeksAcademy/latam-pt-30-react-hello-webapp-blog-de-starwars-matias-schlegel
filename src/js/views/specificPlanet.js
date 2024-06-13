@@ -23,7 +23,11 @@ export const SpecificPlanet = () => {
                 <div className="container">
                     <div className="cardSpecificCharacter col-4">
                         <CardSpecificPlanet 
-                        img="https://wallpapercave.com/wp/wp8179263.jpg"
+                       img={
+                        store.specificPlanet.uid
+                            ? `https://starwars-visualguide.com/assets/img/characters/${store.specificPlanet.uid}.jpg`
+                            : "https://starwars-visualguide.com/assets/img/big-placeholder.jpg"
+                    }
                         title={store.specificPlanet.name}
                         text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada. Maecenas sit amet blandit urna. Praesent vel nunc a lacus vestibulum volutpat. Donec quis dolor nec ipsum tempor blandit vel a odio."}
                         name={store.specificPlanet.name}

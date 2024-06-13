@@ -11,7 +11,7 @@ export const Characters = () => {
         actions.getCharacters()
         actions.getPlanets()
     }, [])
-
+    
     return (
         <React.Fragment>
             <div className="container">
@@ -22,7 +22,7 @@ export const Characters = () => {
                         store.characters.map((character) => (
                             <div className="col-3 g-2" key={character.uid}>
                                 <Card 
-                                    img="https://www.nawpic.com/media/2020/star-wars-nawpic-1.png"
+                                    img={`https://starwars-visualguide.com/assets/img/characters/${character.uid}.jpg`}
                                     title={character.name}
                                     link={`/specificCharacter/${character.uid}`}
                                     characterId={character.uid}
@@ -42,7 +42,11 @@ export const Characters = () => {
                                 store.planets.map((planet) => (
                                     <div className="col-3" key={planet.uid}>
                                         <CardPlanet 
-                                            img2="https://i.pinimg.com/originals/56/37/69/563769f0491a3898145f0113ead75443.jpg"
+                                            img2={
+                                                planet.uid === "1"
+                                                ? "https://starwars-visualguide.com/assets/img/big-placeholder.jpg"
+                                                : `https://starwars-visualguide.com/assets/img/planets/${planet.uid}.jpg`
+                                            }
                                             title2={planet.name}
                                             link2={`/specificPlanet/${planet.uid}`}
                                             planetId={planet.uid}

@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
-import { Single } from "./views/single";
 import { Characters } from "./views/principal";
 import { SpecificCharacter } from "./views/specificCharacter";
 import { SpecificPlanet } from "./views/specificPlanet";
@@ -25,7 +24,6 @@ const Layout = () => {
 						<Route path="/" element={<Characters />}/>
 						<Route path="/demo/:id" element={<SpecificCharacter />} />
 						<Route path="/demo2/:id" element={<SpecificPlanet />} />
-						<Route path="/single/:theid" element={<Single />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
 				</ScrollToTop>

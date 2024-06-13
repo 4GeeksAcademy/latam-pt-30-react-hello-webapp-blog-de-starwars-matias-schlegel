@@ -6,11 +6,11 @@ export const CardPlanet = ({img2, title2, link2, planetId}) => {
     const {store, actions} = useContext(Context)
    
     const handleAddFavorite = () => {
-        const planet = store.planets.find(char => char.uid === planetId);
-        if (planet) {
-            actions.addFavorite(planet);
-        }
-    };
+		const planet = store.planets.find(planet => planet.uid === planetId);
+		if (planet) {
+			actions.addFavorite(planet, 'planet');
+		}
+	};
 
     return (
         <React.Fragment>
